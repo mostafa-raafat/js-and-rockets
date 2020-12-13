@@ -8,5 +8,6 @@ const filterParams = {
 // example of run, you could leave it or modify however you want
 fetch('https://api.spacexdata.com/v3/launches/past')
   .then(response => response.json())
-  .then(prepareData(filterParams))
+  // there was a typo here i had to modify this method to currying version so it match unit-test.
+  .then((data) => prepareData(filterParams)(data))
   .then(renderData)
